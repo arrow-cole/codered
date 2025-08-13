@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Red Robotics - Fall Enrollment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            color: #dc2626;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .enrollment-banner {
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 40px;
+            display: inline-block;
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.4);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 8px 16px rgba(220, 38, 38, 0.4); }
+            to { box-shadow: 0 8px 25px rgba(220, 38, 38, 0.7); }
+        }
+        
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .program-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #dc2626, transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .program-card:hover::before {
+            left: 100%;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.2);
+        }
+        
+        .program-title {
+            color: #dc2626;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .program-grades {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .program-start {
+            color: #a1a1aa;
+            font-size: 0.95em;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.2));
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        
+        .highlight .program-start {
+            color: #fca5a5;
+            font-weight: 600;
+        }
+        
+        .description {
+            color: #d4d4d8;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 30px 0;
+        }
+        
+        .location {
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 25px 0;
+        }
+        
+        .contact-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-title {
+            color: #dc2626;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .contact-info a {
+            color: #fca5a5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #dc2626;
+        }
+        
+        .cta {
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.4);
+        }
+        
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(220, 38, 38, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .programs {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🤖</div>
+        <h1>Code Red Robotics</h1>
+        <div class="subtitle">Fall Enrollment Open</div>
+        
+        <div class="enrollment-banner">
+            🚀 NOW ENROLLING FOR FALL 2024! 🚀
+        </div>
+        
+        <div class="programs">
+            <div class="program-card">
+                <div class="program-title">NRG Program</div>
+                <div class="program-grades">Grades 4-5-6</div>
+                <div class="program-start">Starts week after Labor Day</div>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-title">FTC Middle School</div>
+                <div class="program-grades">Grades 6-7-8</div>
+                <div class="program-start">Starts after Labor Day</div>
+            </div>
+            
+            <div class="program-card highlight">
+                <div class="program-title">High School Program</div>
+                <div class="program-grades">All High School Grades</div>
+                <div class="program-start">OPEN NOW! Winter Competition Prep</div>
+            </div>
+        </div>
+        
+        <div class="description">
+            Join our community-focused student leadership and technology program! We focus on team building, hands-on learning, and preparing students for competitive robotics while developing essential STEM skills and leadership abilities.
+        </div>
+        
+        <div class="location">
+            📍 Located in Byron Center, West Michigan
+        </div>
+        
+        <div class="contact-section">
+            <div class="contact-title">Ready to Get Started?</div>
+            <div class="contact-info">
+                📧 Email: <a href="mailto:info@coderedrobotics.com">info@coderedrobotics.com</a>
+            </div>
+            <div class="contact-info">
+                🌐 Website: <a href="http://www.coderedrobotics.com" target="_blank">www.coderedrobotics.com</a>
+            </div>
+            
+            <a href="mailto:info@coderedrobotics.com" class="cta">
+                Contact Us Today!
+            </a>
+        </div>
+    </div>
+</body>
+</html>
